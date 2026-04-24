@@ -1,83 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>VitalMetrics - Health Calculators</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #f7f7f7;
+    color: #222;
+  }
+<nav>
+  <a href="index.html">Home</a> |
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a> |
+  <a href="privacy.html">Privacy Policy</a>
+</nav>
+<hr>
+  nav {
+    margin-bottom: 20px;
+  }
 
-  <meta name="description" content="Free BMI, calorie, body fat, and protein intake calculators.">
+  a {
+    text-decoration: none;
+    margin: 0 5px;
+    color: #0077ff;
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  input, button {
+    padding: 10px;
+    margin: 5px 0;
+  }
+</style>
+  <meta name="description" content="Free online health calculators including BMI, calorie, body fat, and protein intake tools.">
+<meta name="keywords" content="BMI calculator, calorie calculator, body fat calculator, protein calculator, fitness tools">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MacroMindCalc - Body Health Calculators</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Free Fitness Calculators | BMI, Calories, Body Fat & Protein</title>
+  <meta name="description" content="Use our free fitness calculators to track your BMI, daily calories, body fat percentage, and protein intake. Fast, accurate and easy to use.">
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: auto;
+      font-family: Arial;
+      margin: 0;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      background: #020617;
       padding: 20px;
-      background: #f7f7f7;
-      color: #222;
-    }
-
-    nav {
-      background: white;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #0077ff;
+      text-align: center;
+      font-size: 24px;
       font-weight: bold;
     }
 
-    footer {
-      margin-top: 40px;
+    nav {
       text-align: center;
-      font-size: 14px;
+      padding: 10px;
+      background: #1e293b;
+    }
+
+    nav a {
+      color: #22c55e;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
     }
 
     .card {
-      background: white;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
+      background: #1e293b;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 12px;
+    }
+
+    input, select {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 8px;
+      border: none;
+      width: 90%;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #22c55e;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+      margin-top: 30px;
+      font-size: 14px;
     }
   </style>
 </head>
 
 <body>
 
+<header>
+  Body Calc Pro
+</header>
+
 <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-  <a href="privacy.html">Privacy</a>
+  <a href="#">BMI</a>
+  <a href="#">Calories</a>
+  <a href="#">Body Fat</a>
+  <a href="#">Protein</a>
 </nav>
 
-<h1>VitalMetrics</h1>
-<p>Free health calculators to track your fitness journey.</p>
+<div class="container">
 
-<div class="card">
-  <h3>BMI Calculator</h3>
-  <p>(You can add calculator later)</p>
-</div>
+  <!-- INTRO (SEO BOOST) -->
+  <div class="card">
+    <h2>Free Fitness Calculators</h2>
+    <p>Use our simple and accurate fitness tools to calculate your BMI, daily calorie needs, body fat percentage, and protein intake. Designed for quick results and easy use.</p>
+  </div>
 
-<div class="card">
-  <h3>Calorie Calculator</h3>
-</div>
+  <!-- BMI -->
+  <div class="card">
+    <h2>BMI Calculator</h2>
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+    <button onclick="bmi()">Calculate</button>
+    <p id="bmiResult"></p>
+  </div>
 
-<div class="card">
-  <h3>Body Fat Calculator</h3>
-</div>
+  <!-- Calories -->
+  <div class="card">
+    <h2>Calorie Calculator</h2>
+    <input type="number" id="age" placeholder="Age">
+    <input type="number" id="weightC" placeholder="Weight (kg)">
+    <input type="number" id="heightC" placeholder="Height (cm)">
+    <select id="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <button onclick="calories()">Calculate</button>
+    <p id="calorieResult"></p>
+  </div>
 
-<div class="card">
-  <h3>Protein Intake Calculator</h3>
+  <!-- Body Fat -->
+  <div class="card">
+    <h2>Body Fat Calculator</h2>
+    <input type="number" id="waist" placeholder="Waist (cm)">
+    <input type="number" id="neck" placeholder="Neck (cm)">
+    <input type="number" id="heightBF" placeholder="Height (cm)">
+    <button onclick="bodyFat()">Calculate</button>
+    <p id="fatResult"></p>
+  </div>
+
+  <!-- Protein -->
+  <div class="card">
+    <h2>Protein Intake Calculator</h2>
+    <input type="number" id="weightP" placeholder="Weight (kg)">
+    <button onclick="protein()">Calculate</button>
+    <p id="proteinResult"></p>
+  </div>
+
 </div>
 
 <footer>
-  <p>© 2026 VitalMetrics. All rights reserved.</p>
+  © 2026 Fitness Calculator Hub | Free Online Tools
 </footer>
+
+<script>
+function bmi() {
+  let w = document.getElementById("weight").value;
+  let h = document.getElementById("height").value / 100;
+  let result = (w / (h * h)).toFixed(1);
+  document.getElementById("bmiResult").innerText = "Your BMI: " + result;
+}
+
+function calories() {
+  let age = document.getElementById("age").value;
+  let weight = document.getElementById("weightC").value;
+  let height = document.getElementById("heightC").value;
+  let gender = document.getElementById("gender").value;
+
+  let bmr;
+  if (gender === "male") {
+    bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+  } else {
+    bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+  }
+
+  document.getElementById("calorieResult").innerText = "Estimated Calories: " + Math.round(bmr);
+}
+
+function bodyFat() {
+  let waist = document.getElementById("waist").value;
+  let neck = document.getElementById("neck").value;
+  let height = document.getElementById("heightBF").value;
+
+  let bf = 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(height)) - 450;
+  document.getElementById("fatResult").innerText = "Body Fat: " + bf.toFixed(1) + "%";
+}
+
+function protein() {
+  let weight = document.getElementById("weightP").value;
+  let protein = weight * 1.6;
+  document.getElementById("proteinResult").innerText = "Daily Protein: " + protein + "g";
+}
+</script>
 
 </body>
 </html>
+<footer>
+  <a href="privacy.html">Privacy Policy</a> |
+  <a href="about.html">About</a> |
+  <a href="contact.html">Contact</a>
+</footer>
